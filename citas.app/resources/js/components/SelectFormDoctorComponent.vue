@@ -14,7 +14,7 @@
                             <option :value="null" disabled>-- seleccione un doctor --</option>
                           </template>
                           <!-- These options will appear after the ones from 'options' prop -->
-                          <option v-for="doctor in options" :key="doctor.id">{{doctor.name}}</option>
+                          <option v-for="doctor in options" :key="doctor.email">{{doctor.name}}</option>
                         </b-form-select>
                         <div class="mt-3">Doctor seleccionado: <strong>{{ seleccionado }}</strong></div>
                       </div>

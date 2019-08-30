@@ -8,6 +8,21 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+import Vue from 'vue'
+import VCalendar from 'v-calendar'
+
+Vue.use(VCalendar, {
+  locales: {
+    'es': {
+      firstDayOfWeek: 1,
+      masks: {
+        L: 'DD-MM-YYYY',
+        // ...optional `title`, `weekdays`, `navMonths`, etc
+      }
+    }
+  }
+});
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -21,6 +36,9 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('selectformdoctor-component', require('./components/SelectFormDoctorComponent.vue').default);
+Vue.component('calendario-component', require('./components/CalendarioComponent.vue').default);
+
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
