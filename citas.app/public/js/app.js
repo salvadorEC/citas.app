@@ -1737,56 +1737,28 @@ __webpack_require__.r(__webpack_exports__);
         highlight: true,
         dates: new Date()
       }],
-      items: [{
-        'heading 1': 'table cell',
-        'heading 2': 'table cell',
-        'heading 3': 'table cell'
+      fields: [{
+        key: 'fecha_cita',
+        label: 'Fecha'
       }, {
-        'heading 1': 'table cell',
-        'heading 2': 'table cell',
-        'heading 3': 'table cell'
+        key: 'hora_cita',
+        label: 'Hora'
       }, {
-        'heading 1': 'table cell',
-        'heading 2': 'table cell',
-        'heading 3': 'table cell'
+        key: 'nombre_pacientes',
+        label: 'Paciente'
       }, {
-        'heading 1': 'table cell',
-        'heading 2': 'table cell',
-        'heading 3': 'table cell'
-      }, {
-        'heading 1': 'table cell',
-        'heading 2': 'table cell',
-        'heading 3': 'table cell'
-      }, {
-        'heading 1': 'table cell',
-        'heading 2': 'table cell',
-        'heading 3': 'table cell'
-      }, {
-        'heading 1': 'table cell',
-        'heading 2': 'table cell',
-        'heading 3': 'table cell'
-      }, {
-        'heading 1': 'table cell',
-        'heading 2': 'table cell',
-        'heading 3': 'table cell'
-      }, {
-        'heading 1': 'table cell',
-        'heading 2': 'table cell',
-        'heading 3': 'table cell'
-      }, {
-        'heading 1': 'table cell',
-        'heading 2': 'table cell',
-        'heading 3': 'table cell'
-      }, {
-        'heading 1': 'table cell',
-        'heading 2': 'table cell',
-        'heading 3': 'table cell'
-      }, {
-        'heading 1': 'table cell',
-        'heading 2': 'table cell',
-        'heading 3': 'table cell'
-      }]
+        key: 'tratamiento_tratamientos',
+        label: 'Tratamiento'
+      }],
+      items: []
     };
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get('./api/cita').then(function (response) {
+      return _this.items = response.data;
+    });
   }
 });
 
@@ -65879,21 +65851,6 @@ var render = function() {
         _c("div", { staticClass: "card" }, [
           _vm._m(0),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "card-body" },
-            [
-              _c("v-calendar", {
-                attrs: {
-                  "is-expanded": "",
-                  locale: "es",
-                  attributes: _vm.attrs
-                }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
             _c(
               "div",
@@ -65918,6 +65875,9 @@ var render = function() {
                 _c("b-table", {
                   attrs: {
                     "sticky-header": "",
+                    hover: "",
+                    small: "",
+                    fields: _vm.fields,
                     items: _vm.items,
                     "head-variant": "light"
                   }
@@ -65925,7 +65885,22 @@ var render = function() {
               ],
               1
             )
-          ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "card-body" },
+            [
+              _c("v-calendar", {
+                attrs: {
+                  "is-expanded": "",
+                  locale: "es",
+                  attributes: _vm.attrs
+                }
+              })
+            ],
+            1
+          )
         ])
       ])
     ])

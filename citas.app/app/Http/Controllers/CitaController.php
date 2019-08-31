@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-Use App\Cita;
+use App\Cita;
+use App\User;
 
-class CitasController extends Controller
+class CitaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,8 @@ class CitasController extends Controller
      */
     public function index()
     {
-        //
+        return Cita::all();
+
     }
 
     /**

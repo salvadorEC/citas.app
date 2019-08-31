@@ -5,11 +5,6 @@
               <br>
                 <div class="card">
                     <div class="card-header text-info bg-dark"><i class="far fa-calendar-alt"></i> Objeto7071:Calendario</div>
-                    <!-- calendario-->
-                    <div class="card-body">
-                      <v-calendar is-expanded locale="es" :attributes='attrs' />
-                    </div>
-                    <!-- calendario-->
                     <!-- siguientes citas -->
                     <div class="card-body">
                       <div class="badge badge-primary text-wrap" style="width: 6rem;">
@@ -19,11 +14,16 @@
                       <br>
                       <!-- table-siguientes citas -->
                       <div>
-                        <b-table sticky-header  :items="items" head-variant="light"></b-table>
+                        <b-table sticky-header hover small :fields="fields" :items="items"  head-variant="light"></b-table>
                       </div>
                       <!-- table-siguientes citas -->
                     </div>
                     <!-- siguientes citas -->
+                    <!-- calendario-->
+                    <div class="card-body">
+                      <v-calendar is-expanded locale="es" :attributes='attrs' />
+                    </div>
+                    <!-- calendario-->
                 </div>
             </div>
         </div>
@@ -40,24 +40,21 @@ export default {
           key: 'today',
           highlight: true,
           dates: new Date(),
-        },
+        }
       ],
-      items: [
-          { 'heading 1': 'table cell', 'heading 2': 'table cell', 'heading 3': 'table cell' },
-          { 'heading 1': 'table cell', 'heading 2': 'table cell', 'heading 3': 'table cell' },
-          { 'heading 1': 'table cell', 'heading 2': 'table cell', 'heading 3': 'table cell' },
-          { 'heading 1': 'table cell', 'heading 2': 'table cell', 'heading 3': 'table cell' },
-          { 'heading 1': 'table cell', 'heading 2': 'table cell', 'heading 3': 'table cell' },
-          { 'heading 1': 'table cell', 'heading 2': 'table cell', 'heading 3': 'table cell' },
-          { 'heading 1': 'table cell', 'heading 2': 'table cell', 'heading 3': 'table cell' },
-          { 'heading 1': 'table cell', 'heading 2': 'table cell', 'heading 3': 'table cell' },
-          { 'heading 1': 'table cell', 'heading 2': 'table cell', 'heading 3': 'table cell' },
-          { 'heading 1': 'table cell', 'heading 2': 'table cell', 'heading 3': 'table cell' },
-          { 'heading 1': 'table cell', 'heading 2': 'table cell', 'heading 3': 'table cell' },
-          { 'heading 1': 'table cell', 'heading 2': 'table cell', 'heading 3': 'table cell' }
-        ],
-    };
+      fields: [
+        {key:'fecha_cita', label:'Fecha'},
+        {key:'hora_cita', label:'Hora'},
+        {key:'nombre_pacientes', label:'Paciente'},
+        {key:'tratamiento_tratamientos', label:'Tratamiento'}
+      ],
+      items:[]
+    }
   },
+  created(){
+    axios.get('./api/cita')
+     .then(response => this.items = response.data);
+  }
 };
 
 
