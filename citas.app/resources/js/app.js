@@ -36,7 +36,8 @@ Vue.use(VCalendar, {
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('selectformdoctor-component', require('./components/SelectFormDoctorComponent.vue').default);
-Vue.component('calendario-component', require('./components/CalendarioComponent.vue').default);
+Vue.component('proximascitas-component', require('./components/ProximasCitasComponent.vue').default);
+Vue.component('gestioncitas-component', require('./components/GestionCitasComponent.vue').default);
 
 
 

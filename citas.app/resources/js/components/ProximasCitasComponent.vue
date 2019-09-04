@@ -4,10 +4,9 @@
             <div class="col-md-8">
               <br>
                 <div class="card">
-                    <div class="card-header text-info bg-dark"><i class="far fa-calendar-alt"></i> Objeto7071:Calendario</div>
-                    <!-- siguientes citas -->
+
                     <div class="card-body">
-                      <div class="badge badge-primary text-wrap" style="width: 6rem;">
+                      <div class="badge badge-primary text-wrap" style="width: 7rem;">
                         Próximas Citas
                       </div>
                       <br>
@@ -19,11 +18,6 @@
                       <!-- table-siguientes citas -->
                     </div>
                     <!-- siguientes citas -->
-                    <!-- calendario-->
-                    <div class="card-body">
-                      <v-calendar is-expanded locale="es" :attributes='attrs' />
-                    </div>
-                    <!-- calendario-->
                 </div>
             </div>
         </div>

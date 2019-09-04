@@ -10,8 +10,11 @@
     <selectformdoctor-component></selectformdoctor-component>
     <!-- Objeto7070: Elegir Doctor-->
   @endcan
-  @can('ver_calendario')
-    <calendario-component></calendario-component>
+  @can('proximas_citas')
+    <proximascitas-component></proximascitas-component>
+  @endcan
+  @can('gestion_citas')
+    <gestioncitas-component></proximascitas-component>
   @endcan
   @endrole
 
